@@ -28,33 +28,33 @@ const filter = defineModel('filter', { default: 'all' })
       </select>
     </div>
     </div>
-    <div v-if="products.length > 0" class="mt-6 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-3">
+    <div v-if="products.length > 0" class="mt-4 p-2 grid grid-cols-1 gap-x-4 gap-y-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-3">
       <div v-for="product in products" :key="product.id" class="group rounded-2xl border border-gray-300 bg-white shadow-sm transition hover:shadow-md">
           <NuxtLink :to='`/shop/${product.id}`'>
-          <div class="mt-4 flex flex-col">
+          <div class="flex flex-col">
               <div class="flex flex-col border-b p-3">
                   <h3 class="text-lg text-gray-700">
                   {{product.name}}
                   </h3>
-                  <p class="mt-1 text-lf font-semibold text-green-700">${{product.price}}</p>
+                  <p class="mt-1 text-left font-semibold text-green-700">${{product.price}}</p>
               </div>
               <div class="flex justify-between p-2 border-b ">
                   <span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold "
                     :class="product.inStock ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-600'">
                         {{product.inStock ? "In stock" : "Out of stock"}} 
                   </span>
-                  <div class="flex flex-col">
-                    <p class="text-xs uppercase tracking-wide text-gray-400">Category</p>
-                    <p class="text-sm font-semibold text-gray-700">{{ product.category }}</p>
+                  <div class="flex flex-col border-l-4 pl-2 p-2 border-purple-500">
+                      <p class=" text-sm uppercase tracking-wide text-gray-400">Category</p>
+                      <p class="text-xs font-semibold text-gray-700">{{ product.category }}</p>
                   </div>
-                  <div class="flex flex-col">
-                        <p class=" text-sm uppercase tracking-wide text-gray-400">Brand</p>
+                  <div class="flex flex-col border-l-4 pl-2 p-2 border-green-500">
+                        <p class="text-sm uppercase tracking-wide text-gray-400">Brand</p>
                         <p class="text-xs font-semibold text-gray-700">{{product.brand}}</p>
                   </div>
             </div>
           </div>
           </NuxtLink>
-          <div class="flex justify-center my-1">
+          <div class="flex justify-center my-2">
               <button class="p-2 text-white border rounded-md text-sm disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed bg-blue-600 hover:bg-blue-500"
                       :disabled="!product.inStock"> Add to cart
               </button>
